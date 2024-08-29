@@ -11,3 +11,12 @@ add_subdirectory(src/Test)
 add_executable(G_engine src/main.cpp)
 
 target_link_libraries(G_engine Test)
+
+# for third party library
+file(GLOB EXTERN_LIB "${CMAKE_SOURCE_DIR}/extern/*")
+foreach (LIB EXTERN_LIB)
+    if (IS_DIRECTORY ${LIB})
+    message(STATUS "Adding external library: ${LIB}")
+    add_subdirectory(${LIB})
+endif()
+endforeach()
