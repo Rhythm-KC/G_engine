@@ -1,7 +1,10 @@
 cmake_minimum_required(VERSION 3.26.3)
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
 project(G_Engine)
 
 
+find_package(OpenGL REQUIRED)
 # custom variables
 set(LIB_PATH "${CMAKE_CURRENT_SOURCE_DIR}/lib")
 include_directories(include
@@ -10,10 +13,12 @@ include_directories(include
 add_executable(${PROJECT_NAME} src/main.cpp)
 
 add_subdirectory(src/Test)
+add_subdirectory(src/Render)
 add_subdirectory(external/glfw)
 
 target_link_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/external/glfw/src)
 
 target_link_libraries(${PROJECT_NAME}
                         Test 
+                        Render
                         glfw)
