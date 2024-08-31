@@ -1,4 +1,3 @@
 get_filename_component(CURRENT_DIR_NAME ${CMAKE_CURRENT_SOURCE_DIR} NAME)
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${LIB_PATH}/${CURRENT_DIR_NAME}")
 add_library(${CURRENT_DIR_NAME} STATIC adder.cpp)
 target_include_directories(${CURRENT_DIR_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/include)

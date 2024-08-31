@@ -5,20 +5,15 @@ project(G_Engine)
 
 
 find_package(OpenGL REQUIRED)
-# custom variables
-set(LIB_PATH "${CMAKE_CURRENT_SOURCE_DIR}/lib")
-include_directories(include
-                    external/glfw/include)
 
-add_executable(${PROJECT_NAME} src/main.cpp)
+include_directories(include
+                    external/glfw/include
+                    external/glew/include)
+
 
 add_subdirectory(src/Test)
 add_subdirectory(src/Render)
 add_subdirectory(external/glfw)
+add_subdirectory(src)
 
 target_link_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/external/glfw/src)
-
-target_link_libraries(${PROJECT_NAME}
-                        Test 
-                        Render
-                        glfw)
