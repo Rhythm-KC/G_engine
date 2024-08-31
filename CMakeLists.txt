@@ -8,12 +8,11 @@ find_package(OpenGL REQUIRED)
 
 include_directories(include
                     external/glfw/include
-                    external/glew/include)
+                    external/glad/include)
 
-
+add_subdirectory(src)
 add_subdirectory(src/Test)
 add_subdirectory(src/Render)
 add_subdirectory(external/glfw)
-add_subdirectory(src)
+add_subdirectory(external/glad)
 
-target_link_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/external/glfw/src)

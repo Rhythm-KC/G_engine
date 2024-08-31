@@ -1,0 +1,14 @@
+cmake_minimum_required(VERSION 3.0)
+project(glad)
+
+# Specify the include directory for glad
+include_directories(include)
+
+# Create a static library for GLAD
+add_library(glad STATIC src/glad.c)
+
+# Optionally, you can specify the C++ standard
+set_target_properties(glad PROPERTIES
+    CXX_STANDARD 14
+    CXX_STANDARD_REQUIRED ON
+)
