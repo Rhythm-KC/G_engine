@@ -1,6 +1,8 @@
-#include "Render/OpenGLRenderer.h"
+#include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
+
+#include "Render/OpenGLRenderer.h"
 
 OpenGLRenderer::OpenGLRenderer() : window(nullptr){
 
@@ -29,12 +31,11 @@ void OpenGLRenderer::Initialize(){
 
     // Make the window's context current
     glfwMakeContextCurrent(window);
-    
-    while(!glfwWindowShouldClose(window)){
-        BeginFrame();
-        EndFrame();
-    };
-    glfwTerminate();
+    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
+        std::cerr << "Failed to initialize GLAD" << std::endl;
+        glfwTerminate();
+        return;
+    } 
 
 }
 

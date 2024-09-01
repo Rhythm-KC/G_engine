@@ -5,7 +5,7 @@ if [ "$1" = "clean" ] || [ "$1" == "-c" ]; then
 elif [ "$1" = "config" ]; then
     cmake -D GLFW_BUILD_DOCS=OFF -S . -B out/build;
 elif [ "$1" = "run" ]; then
-    cd out/build; ./G_engine
+    cd out/build/src; ./G_engine
 elif [ "$1" = "make" ]; then
     cd out/build;
     make;

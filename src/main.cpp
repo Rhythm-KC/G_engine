@@ -1,6 +1,5 @@
 #include <iostream>
 #include <memory.h>
-#include <GLFW/glfw3.h>
 
 #include "Test/adder.h"
 #include "Render/IRender.h"
