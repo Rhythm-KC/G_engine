@@ -1,14 +1,15 @@
 #include <iostream>
 #include <memory.h>
+#include <filesystem>
 
 #include "Test/adder.h"
 #include "Render/IRender.h"
-#include "Render/OpenGLRenderer.h"
+#include "Render/OpenGL/OpenGLRenderer.h"
 
 int main(){
     int x = add(2, 5);
-   std::cout << "hello world" << x << std::endl;
-   std::unique_ptr<IRender> renderer = std::make_unique<OpenGLRenderer>();
-   renderer->Initialize();
+    
+   auto renderer = OpenGLRenderer();
+   renderer.Initialize();
    return 0;
 }
